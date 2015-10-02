@@ -11,7 +11,7 @@ public class DeveloperTest {
 	private static final String apiEndpoint = "http://api.goeuro.com/api/v2/position/suggest/en/";
 	
 	//TODO replace throws with Try-Catch, to better inform the user if there are any problems in 
-	// accessing the API
+	//accessing the API
 	public static void main(String[] args) throws IOException {
 		if (args.length > 0 && !args[0].isEmpty()) {
 			String city = args[0];
@@ -25,7 +25,7 @@ public class DeveloperTest {
 	}
 	
 	//TODO replace throws with Try-Catch, to better inform the user if there are any problems in 
-	// creating the CSV file
+	//creating the CSV file
 	private void createCsvFileFromJson(JsonArray suggestions) throws IOException {
 		if (suggestions.isEmpty()) {
 			System.out.println("No suggestions exist for given city!");
