@@ -14,18 +14,16 @@ public class CsvWriter {
 		BufferedWriter writer = new BufferedWriter(new FileWriter("suggestions.csv"));
 		writer.append("id,name,type,latitude,longitude");
 		writer.append('\n');
-		String id, name, type, latitude, longitude;
-		JsonObject suggestion;
+		String id, name, type;
+		JsonObject suggestion, geoPosition;
 
 		for (int i = 0; i < size; i++) {
 			suggestion = suggestions.getJsonObject(i);
 			id = String.valueOf(suggestion.getInt("_id"));
 			name = suggestion.getString("name");
 			type = suggestion.getString("type");
-			JsonObject geoPosition = suggestion.getJsonObject("geo_position");
-			latitude = String.valueOf(geoPosition.get("latitude"));
-			longitude = String.valueOf(geoPosition.get("longitude"));
-			writer.append(String.format("%1s,%2s,%3s,%4s,%5s", id, name, type, latitude, longitude));
+			geoPosition = suggestion.getJsonObject("geo_position");
+			writer.append(String.format("%1s,%2s,%3s,%4s,%5s", id, name, type, geoPosition.get("latitude"), geoPosition.get("longitude")));
 			writer.append('\n');
 		}
 		writer.flush();
