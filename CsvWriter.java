@@ -12,8 +12,7 @@ public class CsvWriter {
 	void write2File(JsonArray suggestions) throws IOException {
 		int size = suggestions.size();
 		BufferedWriter writer = new BufferedWriter(new FileWriter("suggestions.csv"));
-		writer.append("id,name,type,latitude,longitude");
-		writer.append('\n');
+		createHeaderRow(writer);
 		String id, name, type;
 		JsonObject suggestion, geoPosition;
 
@@ -29,5 +28,10 @@ public class CsvWriter {
 		}
 		writer.flush();
 		writer.close();
+	}
+	
+	void createHeaderRow (BufferedWriter writer) throws IOException{
+		writer.append("id,name,type,latitude,longitude");
+		writer.append('\n');
 	}
 }
