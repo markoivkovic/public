@@ -37,7 +37,5 @@ public class GoEuroTest {
 		} catch (IOException e) {
 			System.out.println("Error creating or writing file!");
 		}
-
-		
 	}
 }
