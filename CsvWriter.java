@@ -23,7 +23,8 @@ public class CsvWriter {
 			name = suggestion.getString("name");
 			type = suggestion.getString("type");
 			geoPosition = suggestion.getJsonObject("geo_position");
-			writer.append(String.format("%1s,%2s,%3s,%4s,%5s", id, name, type, geoPosition.get("latitude"), geoPosition.get("longitude")));
+			writer.append(String.format("%1s,%2s,%3s,%4s,%5s", id, name, type, geoPosition.get("latitude"),
+					geoPosition.get("longitude")));
 			writer.append('\n');
 		}
 		writer.flush();
